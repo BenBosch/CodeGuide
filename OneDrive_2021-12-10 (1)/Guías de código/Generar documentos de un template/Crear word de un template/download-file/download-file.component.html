@@ -1,0 +1,6 @@
+<button *ngIf="!icon" class="rb-btn rb-secondary"  rbTooltip="Download PDF" (click)="downloadWord()">
+    Download Word
+</button>
+
+<button *ngIf="icon" title="Download Word" rbTooltip="Download PDF" class="rb-btn rb-link rb-ic rb-ic-document mr-0"  (click)="downloadWord()">
+</button>

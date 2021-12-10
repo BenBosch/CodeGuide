@@ -1,0 +1,20 @@
+<form #formEditRequest="ngForm" (ngSubmit)="triggerSave(formEditRequest)">
+  <!--Validación de un número entero positivo-->
+  <rb-form-input #palletCost name="palletCost" label="Pallet Cost" [autofocus]="true" type="number" rbMin="0" ngModel required>
+    <ng-template rbFormValidationMessage="required">Pallet cost is required
+    </ng-template>
+    <ng-template rbFormValidationMessage="rbMin">Should be a positive number </ng-template>
+  </rb-form-input>
+  <!--Validación con regex-->
+  <rb-form-input #serialReference name="serialReference" label="Serial Reference" [autofocus]="true" ngModel required
+    pattern=".{10,}" maxlength="13">
+    <ng-template rbFormValidationMessage="required">Serial Reference is required</ng-template>
+    <ng-template rbFormValidationMessage="pattern" [rbFormValidationMessageOnTouched]="true">
+      10-13 characters</ng-template>
+  </rb-form-input>
+  <rb-form-textarea #comments name="comments" label="Comments" [autofocus]="true" ngModel required>
+    <ng-template rbFormValidationMessage="required">Comments is required</ng-template>
+  </rb-form-textarea>
+  <hr />
+  <button id="submit " type="submit" class="rb-btn rb-primary mr-2">Save</button>
+</form>
